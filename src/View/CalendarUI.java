@@ -13,33 +13,27 @@ public class CalendarUI extends JPanel{
     static JButton btnPrev, btnNext;
     static JTable tblCalendar;
     static JComboBox cmbYear;
-    static JFrame frmMain;
-    static Container pane;
+    static Container container;
     static DefaultTableModel mtblCalendar; //Table model
     static JScrollPane stblCalendar; //The scrollpane
     static JPanel pnlCalendar;
     static int realYear, realMonth, realDay, currentYear, currentMonth;
     public CalendarUI(){
         panel = new JPanel();
-
-       // frmMain = new JFrame (); //Create frame
-        //frmMain.setSize(330, 375); //Set size to 400x400 pixels
-        panel.setLayout(null); //Apply null layout
-        //frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close when X is clicked
-
         //Create controls
         lblMonth = new JLabel ("January");
-        lblYear = new JLabel ("Change year:");
+        lblYear = new JLabel ("Years");
         cmbYear = new JComboBox();
-        btnPrev = new JButton ("&lt;&lt;");
-        btnNext = new JButton ("&gt;&gt;");
-        mtblCalendar = new DefaultTableModel(){public boolean isCellEditable(int rowIndex, int mColIndex){return false;}};
+        btnPrev = new JButton ("<");
+        btnNext = new JButton (">");
+        mtblCalendar = new DefaultTableModel(){
+            public boolean isCellEditable(int rowIndex, int mColIndex){return false;}};
         tblCalendar = new JTable(mtblCalendar);
         stblCalendar = new JScrollPane(tblCalendar);
-        pnlCalendar = new JPanel(null);
+
 
         //Set border
-        pnlCalendar.setBorder(BorderFactory.createTitledBorder("Calendar"));
+        panel.setBorder(BorderFactory.createTitledBorder("Calendar"));
 
         //Register action listeners
         btnPrev.addActionListener(new btnPrev_Action());
@@ -47,16 +41,15 @@ public class CalendarUI extends JPanel{
         cmbYear.addActionListener(new cmbYear_Action());
 
         //Add controls to pane
-        panel.add(pnlCalendar);
-        pnlCalendar.add(lblMonth);
-        pnlCalendar.add(lblYear);
-        pnlCalendar.add(cmbYear);
-        pnlCalendar.add(btnPrev);
-        pnlCalendar.add(btnNext);
-        pnlCalendar.add(stblCalendar);
+        panel.add(lblMonth);
+        panel.add(lblYear);
+        panel.add(cmbYear);
+        panel.add(btnPrev);
+        panel.add(btnNext);
+        panel.add(stblCalendar);
 
         //Set bounds
-        pnlCalendar.setBounds(0, 0, 320, 335);
+        panel.setBounds(100, 100, 500, 500);
         lblMonth.setBounds(160-lblMonth.getPreferredSize().width/2, 25, 100, 25);
         lblYear.setBounds(10, 305, 80, 20);
         cmbYear.setBounds(230, 305, 80, 20);
@@ -79,7 +72,6 @@ public class CalendarUI extends JPanel{
         for (int i=0; i<7; i++){
             mtblCalendar.addColumn(headers[i]);
         }
-
         tblCalendar.getParent().setBackground(tblCalendar.getBackground()); //Set background
 
         //No resize/reorder
@@ -103,8 +95,9 @@ public class CalendarUI extends JPanel{
         //Refresh calendar
         refreshCalendar (realMonth, realYear); //Refresh calendar
         panel.add(tblCalendar);
-
+        add(panel);
     }
+
 
 
     public static void refreshCalendar(int month, int year){
