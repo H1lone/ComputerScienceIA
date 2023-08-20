@@ -11,6 +11,8 @@ public class LogInUI extends JPanel {
     private JButton logInButton;
     private JTextField emailTextField;
     private JPasswordField passwordPasswordField;
+    private JButton signUpButton;
+    private JLabel donTHaveAccountLabel;
 
     public LogInUI(){
         add(logInJPanel);
@@ -22,5 +24,14 @@ public class LogInUI extends JPanel {
                 layout.show(cards, Cards.MAINPAGE_UI_ID);
             }
         });
+        signUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Cards cards = MainFrame.getCards();
+                CardLayout layout = (CardLayout) cards.getLayout();
+                layout.show(cards, Cards.SIGNUP_UI_ID);
+            }
+        });
     }
+
 }

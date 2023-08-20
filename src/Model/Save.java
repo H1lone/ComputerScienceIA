@@ -3,6 +3,7 @@ package Model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 /**Task
  * Complete userData method 완
@@ -13,8 +14,23 @@ import java.nio.charset.StandardCharsets;
 public class Save {
     /**
      * Method for saving data
-     * @param profile
      */
+    public static void saveSignUpData(String email, String password) throws IOException {
+        FileWriter newFile = new FileWriter("database.txt", StandardCharsets.UTF_8, true);
+        newFile.write(""+email+", "+password);
+        newFile.close();
+    }
+
+    public static void saveAssignmentsData(String title, String subject, String description, String dueDate) throws IOException {
+        ArrayList<String> information = new ArrayList<String>();
+        information.add(title);
+        information.add(subject);
+        information.add(description);
+        information.add(dueDate);
+        FileWriter newFile = new FileWriter("database.txt", StandardCharsets.UTF_8, true);
+        newFile.write(""+information);
+        newFile.close();
+    }
     public void SaveData(Profile profile){
         int lastID = Load.lastID();
         if(lastID == -1){

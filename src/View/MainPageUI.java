@@ -15,7 +15,6 @@ public class MainPageUI extends JPanel {
     private JTextField addAssignmentTextField2;
     private JButton profileButton;
     private JButton homeworkTimetableButton;
-    private JButton filterButton;
     private JButton calendarButton;
 
     public MainPageUI(){
@@ -42,14 +41,6 @@ public class MainPageUI extends JPanel {
                 Cards cards = MainFrame.getCards();
                 CardLayout layout = (CardLayout) cards.getLayout();
                 layout.show(cards, Cards.PROFILE_UI_ID);
-            }
-        });
-        filterButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Cards cards = MainFrame.getCards();
-                CardLayout layout = (CardLayout) cards.getLayout();
-                layout.show(cards, Cards.FILTER_UI_ID);
             }
         });
         calendarButton.addActionListener(new ActionListener() {

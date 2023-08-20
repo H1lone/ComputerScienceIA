@@ -24,7 +24,7 @@ public class Cards extends JPanel {
     public static final String CALENDAR_UI_ID = "CalendarUI";
     public static final String HomeworkTimeTable_UI_ID = "HomeworkTimeTableUI";
 
-    public Cards(){ //
+    public Cards(){ //constructor for cards
         super(new CardLayout());
         add(signUpUI, SIGNUP_UI_ID);
         add(logInUI, LOGIN_UI_ID);

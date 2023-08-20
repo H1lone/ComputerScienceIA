@@ -1,2 +1,0 @@
-0, someone@gmail.com, password, accountName, dd/mm/yy, subjects, assignments, profileImage
-1,

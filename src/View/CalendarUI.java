@@ -190,4 +190,13 @@ public class CalendarUI extends JPanel{
             }
         }
     }
+    /*public static void main(String args[]){
+        JFrame frame = new JFrame();
+        Jbutton button = new JButton("Button");
+        frame.add(button);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400,400);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }*/
 }

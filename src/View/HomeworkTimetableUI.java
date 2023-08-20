@@ -1,7 +1,5 @@
 package View;
 
-import com.sun.tools.javac.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,6 +15,7 @@ public class HomeworkTimetableUI extends JPanel{
     private JTextArea textArea1;
     private JTextArea textArea2;
     private JButton mainPageButton;
+    private JButton filterButton;
 
     public HomeworkTimetableUI(){
         add(homeworkTimeTableJPanel);
@@ -26,6 +25,14 @@ public class HomeworkTimetableUI extends JPanel{
                 Cards cards = MainFrame.getCards();
                 CardLayout layout = (CardLayout) cards.getLayout();
                 layout.show(cards, Cards.MAINPAGE_UI_ID);
+            }
+        });
+        filterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Cards cards = MainFrame.getCards();
+                CardLayout layout = (CardLayout) cards.getLayout();
+                layout.show(cards, Cards.FILTER_UI_ID);
             }
         });
     }

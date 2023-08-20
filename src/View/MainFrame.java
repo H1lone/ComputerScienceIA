@@ -25,7 +25,7 @@ public class MainFrame {
     public static void initialize(){
         cards = new Cards();
         frame = new JFrame();
-        frame.getContentPane().add(cards); //
+        frame.getContentPane().add(cards); //retrieves content pane layer so that object can be added
         frame.setBounds(100, 100, 500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
@@ -34,7 +34,7 @@ public class MainFrame {
                 e.getWindow().dispose();
             }
         }); //
-        frame.setVisible(true); //
+        frame.setVisible(true); //makes the frame appear on the screen
     }
 
     public static JFrame getFrame() {

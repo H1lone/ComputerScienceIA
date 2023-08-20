@@ -35,5 +35,13 @@ public class FilterUI extends JPanel{
                 layout.show(cards, Cards.MAINPAGE_UI_ID);
             }
         });
+        applyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Cards cards = MainFrame.getCards();
+                CardLayout layout = (CardLayout) cards.getLayout();
+                layout.show(cards, Cards.HomeworkTimeTable_UI_ID);
+            }
+        });
     }
 }

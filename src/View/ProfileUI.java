@@ -32,5 +32,13 @@ public class ProfileUI extends JPanel {
                 layout.show(cards, Cards.MAINPAGE_UI_ID);
             }
         });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Cards cards = MainFrame.getCards();
+                CardLayout layout = (CardLayout) cards.getLayout();
+                layout.show(cards, Cards.MAINPAGE_UI_ID);
+            }
+        });
     }
 }
