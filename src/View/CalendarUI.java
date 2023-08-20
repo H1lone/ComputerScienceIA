@@ -30,7 +30,7 @@ public class CalendarUI extends JPanel{
             public boolean isCellEditable(int rowIndex, int mColIndex){return false;}};
         tblCalendar = new JTable(mtblCalendar);
         stblCalendar = new JScrollPane(tblCalendar);
-
+        // create a button that goes to the main page
 
         //Set border
         panel.setBorder(BorderFactory.createTitledBorder("Calendar"));
@@ -39,6 +39,8 @@ public class CalendarUI extends JPanel{
         btnPrev.addActionListener(new btnPrev_Action());
         btnNext.addActionListener(new btnNext_Action());
         cmbYear.addActionListener(new cmbYear_Action());
+        // add an actionListener to move to other page
+
 
         //Add controls to pane
         panel.add(lblMonth);
@@ -47,6 +49,7 @@ public class CalendarUI extends JPanel{
         panel.add(btnPrev);
         panel.add(btnNext);
         panel.add(stblCalendar);
+        // add a button
 
         //Set bounds
         panel.setBounds(100, 100, 500, 500);
@@ -56,8 +59,8 @@ public class CalendarUI extends JPanel{
         btnPrev.setBounds(10, 25, 50, 25);
         btnNext.setBounds(260, 25, 50, 25);
         stblCalendar.setBounds(10, 50, 300, 250);
+        // set a bound for a button
 
-        //Make frame visible
 
         //Get real month/year
         GregorianCalendar cal = new GregorianCalendar(); //Create calendar

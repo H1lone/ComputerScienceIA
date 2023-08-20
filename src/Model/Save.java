@@ -18,6 +18,13 @@ public class Save {
     public static void saveSignUpData(String email, String password) throws IOException {
         FileWriter newFile = new FileWriter("database.txt", StandardCharsets.UTF_8, true);
         newFile.write(""+email+", "+password);
+        newFile.write("\n");
+        newFile.close();
+    }
+
+    public static void saveProfile(String email, String accountName, String dob, String subjects) throws IOException {
+        FileWriter newFile = new FileWriter("database.txt", StandardCharsets.UTF_8, true);
+        newFile.write(""+email+", "+ accountName+", "+dob+", "+ subjects);
         newFile.close();
     }
 
