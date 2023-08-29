@@ -10,7 +10,7 @@ import java.util.*;
 public class CalendarUI extends JPanel{
     static JPanel panel;
     static JLabel lblMonth, lblYear;
-    static JButton btnPrev, btnNext;
+    static JButton btnPrev, btnNext, btnBack;
     static JTable tblCalendar;
     static JComboBox cmbYear;
     static Container container;
@@ -30,6 +30,7 @@ public class CalendarUI extends JPanel{
             public boolean isCellEditable(int rowIndex, int mColIndex){return false;}};
         tblCalendar = new JTable(mtblCalendar);
         stblCalendar = new JScrollPane(tblCalendar);
+        btnBack = new JButton ("Back");
         // create a button that goes to the main page
 
         //Set border
@@ -40,6 +41,15 @@ public class CalendarUI extends JPanel{
         btnNext.addActionListener(new btnNext_Action());
         cmbYear.addActionListener(new cmbYear_Action());
         // add an actionListener to move to other page
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Cards cards = MainFrame.getCards();
+                CardLayout layout = (CardLayout) cards.getLayout();
+                layout.show(cards, Cards.MAINPAGE_UI_ID);
+            }
+        });
+
 
 
         //Add controls to pane
@@ -49,6 +59,7 @@ public class CalendarUI extends JPanel{
         panel.add(btnPrev);
         panel.add(btnNext);
         panel.add(stblCalendar);
+        panel.add(btnBack);
         // add a button
 
         //Set bounds
@@ -58,6 +69,7 @@ public class CalendarUI extends JPanel{
         cmbYear.setBounds(230, 305, 80, 20);
         btnPrev.setBounds(10, 25, 50, 25);
         btnNext.setBounds(260, 25, 50, 25);
+        btnBack.setBounds(40, 25, 50, 25);
         stblCalendar.setBounds(10, 50, 300, 250);
         // set a bound for a button
 
@@ -193,13 +205,4 @@ public class CalendarUI extends JPanel{
             }
         }
     }
-    /*public static void main(String args[]){
-        JFrame frame = new JFrame();
-        Jbutton button = new JButton("Button");
-        frame.add(button);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400,400);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }*/
 }
