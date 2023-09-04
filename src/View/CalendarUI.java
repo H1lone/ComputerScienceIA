@@ -71,8 +71,6 @@ public class CalendarUI extends JPanel{
         btnNext.setBounds(260, 25, 50, 25);
         btnBack.setBounds(40, 25, 50, 25);
         stblCalendar.setBounds(10, 50, 300, 250);
-        // set a bound for a button
-
 
         //Get real month/year
         GregorianCalendar cal = new GregorianCalendar(); //Create calendar

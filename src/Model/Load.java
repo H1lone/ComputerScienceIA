@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Load {
     /**
@@ -27,9 +28,9 @@ public class Load {
         }catch (IOException e){
             e.printStackTrace();
         }
-        return -1; //return -1 when the database is empty
+        return 1; //return -1 when the database is empty
     }
-    public static boolean findEmail(String email){
+    public static String findEmail(String email){
         try{
             BufferedReader reader = new BufferedReader(new FileReader("database.txt"));
             String line = reader.readLine(); //read the first line of the database
@@ -38,16 +39,15 @@ public class Load {
                 while(line != null){
                     last = line;
                     List<String> lastStr = Arrays.asList(last.split(", "));
-                    if(lastStr.get(1) == email){
-                        return true;
+                    if(Objects.equals(lastStr.get(1), email)){
+                        return lastStr.get(2);
                     }
                     line = reader.readLine(); //read the next line
                 }
-                return false;
             }
         }catch (IOException e){
             e.printStackTrace();
         }
-        return false;
+        return "Not found";
     }
 }

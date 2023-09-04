@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**Task
- * Complete userData method 완
+ * Complete userData method
  * documentation for saveData (save class) and lastID (load class) 완
  * review all the methods from save and load class
  * Make all UI page
@@ -17,8 +17,15 @@ public class Save {
      */
     public static void saveSignUpData(String email, String password) throws IOException {
         FileWriter newFile = new FileWriter("database.txt", StandardCharsets.UTF_8, true);
-        int lastID = Load.lastID();
-        newFile.write(""+lastID+", "+email+", "+password);
+        int newId;
+        if (Load.lastID()==1){
+            newId = 0;
+        }
+        else{
+            newId = Load.lastID()+1;
+        }
+
+        newFile.write(""+newId+", "+email+", "+password);
         newFile.write("\n");
         newFile.close();
     }
@@ -28,6 +35,11 @@ public class Save {
         newFile.write(""+email+", "+ accountName+", "+dob+", "+ subjects);
         newFile.close();
     }
+
+    /*
+    * Create a method that stores the assignment
+    * */
+
 
     public static void saveAssignmentsData(String title, String subject, String description, String dueDate) throws IOException {
         ArrayList<String> information = new ArrayList<String>();

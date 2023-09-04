@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class LogInUI extends JPanel {
     private JLabel logInLabel;
@@ -21,12 +22,14 @@ public class LogInUI extends JPanel {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(Load.findEmail(emailTextField.getText())){
+                String password = new String(passwordPasswordField.getPassword());
+                if(Objects.equals(Load.findEmail(emailTextField.getText()), password)){ // && find password and check if it matches with email
                     logInLabel.setText("found");
+                    Cards cards = MainFrame.getCards();
+                    CardLayout layout = (CardLayout) cards.getLayout();
+                    layout.show(cards, Cards.MAINPAGE_UI_ID);
                 }
-                Cards cards = MainFrame.getCards();
-                CardLayout layout = (CardLayout) cards.getLayout();
-                layout.show(cards, Cards.MAINPAGE_UI_ID);
+
             }
         });
         signUpButton.addActionListener(new ActionListener() {
