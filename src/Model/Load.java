@@ -28,7 +28,7 @@ public class Load {
         }catch (IOException e){
             e.printStackTrace();
         }
-        return 1; //return -1 when the database is empty
+        return 0; //return -1 when the database is empty
     }
     public static String findEmail(String email){
         try{

@@ -17,13 +17,8 @@ public class Save {
      */
     public static void saveSignUpData(String email, String password) throws IOException {
         FileWriter newFile = new FileWriter("database.txt", StandardCharsets.UTF_8, true);
-        int newId;
-        if (Load.lastID()==1){
-            newId = 0;
-        }
-        else{
-            newId = Load.lastID()+1;
-        }
+        int newId = Load.lastID()+1;
+
 
         newFile.write(""+newId+", "+email+", "+password);
         newFile.write("\n");
