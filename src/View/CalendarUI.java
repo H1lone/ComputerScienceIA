@@ -62,8 +62,6 @@ public class CalendarUI extends JPanel{
         panel.add(btnBack);
         // add a button
 
-        //Set layout to null
-        panel.setLayout(null);
 
         //Set bounds
         panel.setBounds(100, 100, 500, 500);
